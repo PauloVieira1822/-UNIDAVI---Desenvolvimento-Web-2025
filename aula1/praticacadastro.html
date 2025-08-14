@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro Simples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f2ff; /* estilo 1: fundo */
+            padding: 20px;
+        }
+        form {
+            background-color: #ffffff; /* estilo 2: fundo do formulário */
+            padding: 15px;
+            border-radius: 5px;
+            max-width: 350px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Cadastro de Usuário</h1>
+
+    <form>
+        <label>Nome:</label>
+        <input type="text" name="nome">
+
+        <label>Telefone:</label>
+        <input type="tel" name="telefone">
+
+        <label>E-mail:</label>
+        <input type="email" name="email">
+
+        <label>Tipo Pessoa:</label>
+        <input type="radio" name="tipo" value="Fisica"> Física
+        <input type="radio" name="tipo" value="Juridica"> Jurídica
+
+        <label>Endereço:</label>
+        <input type="text" name="endereco">
+
+        <label>UF:</label>
+        <select name="uf">
+            <option>SP</option>
+            <option>RJ</option>
+            <option>MG</option>
+            <option>RS</option>
+        </select>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+</body>
+</html>
