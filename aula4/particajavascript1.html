@@ -6,10 +6,23 @@
 </head>
 <body>
     <div class="container">
-    <h2>Login</h2>
-    <input type="text" id="usuario" placeholder="Usuário">
-    <input type="password" id="senha" placeholder="Senha">
-    <button onclick="fazerLogin()">Login</button>
-  </div>
+        <h2>Login</h2>
+        <input type="text" id="usuario" placeholder="Usuário">
+        <input type="password" id="senha" placeholder="Senha">
+        <button onclick="fazerLogin()">Login</button>
+    </div>
+
+    <script>
+        function fazerLogin() {
+            let user = document.getElementById("usuario");
+            let pass = document.getElementById("senha");
+
+            if (user.value === "user" && pass.value === "pass") {
+                alert("Login Ok");
+            } else {
+                alert("Usuário ou senha incorretos!");
+            }
+        }
+    </script>
 </body>
 </html>
