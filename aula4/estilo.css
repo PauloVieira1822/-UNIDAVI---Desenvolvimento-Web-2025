@@ -1,0 +1,21 @@
+
+form {
+    width: 500px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #eee;
+    border: 1px solid #999;
+    font-family: Arial, sans-serif;
+}
+
+
+form h2 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+form div {
+    padding: 8px;
+    margin-bottom: 5px;
+}
+

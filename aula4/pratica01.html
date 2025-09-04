@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro Simples</title>
+   
+</head>
+<body>
+
+    <h1>Cadastro de Usuário</h1>
+
+    <form>
+        <label>Nome:</label>
+        <input type="text" name="nome">
+
+        <label>Telefone:</label>
+        <input type="tel" name="telefone">
+
+        <label>E-mail:</label>
+        <input type="email" name="email">
+
+        <label>Tipo Pessoa:</label>
+        <input type="radio" name="tipo" value="Fisica"> Física
+        <input type="radio" name="tipo" value="Juridica"> Jurídica
+
+        <label>Endereço:</label>
+        <input type="text" name="endereco">
+
+        <label>UF:</label>
+        <select name="uf">
+            <option>SP</option>
+            <option>RJ</option>
+            <option>MG</option>
+            <option>RS</option>
+        </select>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+</body>
+</html>
