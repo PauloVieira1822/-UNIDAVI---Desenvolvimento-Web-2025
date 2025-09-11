@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora JS</title>
+  <style>
+    #resultado {
+      width: 150px;
+      height: 30px;
+      text-align: center;
+      font-size: 18px;
+      margin-top: 10px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <h2>Calculadora Simples</h2>
+
+  <input type="number" id="num1" placeholder="Número 1">
+  <select id="operacao">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>
+  <input type="number" id="num2" placeholder="Número 2">
+  <button onclick="calcular()">=</button>
+
+  <div id="resultado">0</div>
+
+  <script>
+    function calcular() {
+      let n1 = parseFloat(document.getElementById("num1").value);
+      let n2 = parseFloat(document.getElementById("num2").value);
+      let op = document.getElementById("operacao").value;
+      let res;
+
+      switch(op) {
+        case "+": res = n1 + n2; break;
+        case "-": res = n1 - n2; break;
+        case "*": res = n1 * n2; break;
+        case "/": res = n1 / n2; break;
+        default: res = 0;
+      }
+
+      let campo = document.getElementById("resultado");
+      campo.innerHTML = res;
+
+      if (res < 0) {
+        campo.style.backgroundColor = "red";
+        campo.style.color = "white";
+      } else if (res > 0) {
+        campo.style.backgroundColor = "green";
+        campo.style.color = "white";
+      } else {
+        campo.style.backgroundColor = "gray";
+        campo.style.color = "white";
+      }
+    }
+  </script>
+</body>
+</html>

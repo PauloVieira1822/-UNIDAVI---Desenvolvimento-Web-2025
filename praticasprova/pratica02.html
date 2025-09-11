@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabela de Notas</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 5px;
+      text-align: center;
+    }
+    th {
+      background: #ccc;
+    }
+    .media {
+      background: #f0f0f0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Notas dos Alunos</h2>
+  
+  <table id="tabelaNotas">
+    <tr>
+      <th>Aluno</th>
+      <th colspan="3">Semestre 1</th>
+      <th colspan="3">Semestre 2</th>
+      <th colspan="3">Semestre 3</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>Nota 1</th>
+      <th>Nota 2</th>
+      <th>Nota 3</th>
+      <th>Nota 1</th>
+      <th>Nota 2</th>
+      <th>Nota 3</th>
+      <th>Nota 1</th>
+      <th>Nota 2</th>
+      <th>Nota 3</th>
+    </tr>
+    <tr>
+      <td>João</td>
+      <td>10</td>
+      <td>8</td>
+      <td>9</td>
+      <td>6</td>
+      <td>8.7</td>
+      <td>10</td>
+      <td>6</td>
+      <td>7</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>Maria</td>
+      <td>7</td><td>8</td><td>9</td>
+      <td>6</td><td>5</td><td>8</td>
+      <td>7</td><td>6</td><td>8</td>
+    </tr>
+    <tr>
+      <td>José</td>
+      <td>5</td><td>6</td><td>7</td>
+      <td>8</td><td>7</td><td>6</td>
+      <td>7</td><td>9</td><td>8</td>
+    </tr>
+    <tr>
+      <td>Paulo</td>
+      <td>9</td><td>8</td><td>10</td>
+      <td>9</td><td>8</td><td>10</td>
+      <td>8</td><td>7</td><td>9</td>
+    </tr>
+  </table>
+
+  <br>
+  <button onclick="mediaColunas()">Adicionar Linha (Média por Nota)</button>
+  <button onclick="mediaLinhas()">Adicionar Coluna (Média por Aluno)</button>
+
+  <script>
+    function mediaColunas() {
+      let tabela = document.getElementById("tabelaNotas");
+      let linhas = tabela.rows;
+      let qtdLinhas = linhas.length;
+      let qtdColunas = linhas[1].cells.length;
+
+      
+      let novaLinha = tabela.insertRow();
+
+      let primeiraCelula = novaLinha.insertCell(0);
+      primeiraCelula.innerHTML = "Média Notas";
+      primeiraCelula.classList.add("media");
+
+      for (let c = 1; c < qtdColunas; c++) {
+        let soma = 0, cont = 0;
+        for (let l = 2; l < qtdLinhas - 0; l++) { 
+          let valor = parseFloat(linhas[l].cells[c].innerHTML);
+          if (!isNaN(valor)) {
+            soma += valor;
+            cont++;
+          }
+        }
+        let media = (soma / cont).toFixed(1);
+        let cel = novaLinha.insertCell(c);
+        cel.innerHTML = media;
+        cel.classList.add("media");
+      }
+    }
+
+    function mediaLinhas() {
+      let tabela = document.getElementById("tabelaNotas");
+      let linhas = tabela.rows;
+      let qtdLinhas = linhas.length;
+
+      
+      linhas[0].insertCell(-1).outerHTML = "<th rowspan='2'>Média</th>";
+
+      
+      for (let l = 2; l < qtdLinhas; l++) {
+        let soma = 0, cont = 0;
+        for (let c = 1; c < linhas[l].cells.length; c++) {
+          let valor = parseFloat(linhas[l].cells[c].innerHTML);
+          if (!isNaN(valor)) {
+            soma += valor;
+            cont++;
+          }
+        }
+        let media = (soma / cont).toFixed(1);
+        let cel = linhas[l].insertCell(-1);
+        cel.innerHTML = media;
+        cel.classList.add("media");
+      }
+    }
+  </script>
+</body>
+</html>
